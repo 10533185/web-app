@@ -25,7 +25,7 @@ def index():
             logged_in_user_id = 1
         db = get_db()
         db.execute(
-            'INSERT INTO kart (user_id, product_id)'
+            'INSERT INTO Cart (user_id, product_id)'
             ' VALUES (?, ?)',
             (logged_in_user_id, request.form['product_id'])
         )

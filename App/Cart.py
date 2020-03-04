@@ -6,21 +6,21 @@ from werkzeug.exceptions import abort
 from App.auth import login_required
 from App.db import get_db
 
-bp = Blueprint('kart', __name__,url_prefix='/kart')
+bp = Blueprint('Cart', __name__,url_prefix='/Cart')
 
 @bp.route('/index')
 @login_required
 def index():
     db = get_db()
 
-    kart_items = db.execute(
-        'SELECT kart.user_id,kart.id,Products.name, Products.price, Products.description, Products.image, Products.id FROM products JOIN kart ON Products.id = Kart.product_id'
+    Cart_items = db.execute(
+        'SELECT Cart.user_id,Cart.id,Products.name, Products.price, Products.description, Products.image, Products.id FROM products JOIN Cart ON Products.id = Cart.product_id'
         
 
 
     ).fetchall()
 
-    return render_template('kart/index.html', kart_items=kart_items)
+    return render_template('Cart/index.html', Cart_items=Cart_items)
 
 
 
@@ -36,15 +36,15 @@ def create():
         else:
             db = get_db()
             db.execute(
-                'INSERT INTO kart (user_id, product_id)'
+                'INSERT INTO Cart (user_id, product_id)'
                 ' VALUES (?, ?)',
                 (g.user['user_id'], product_id)
             )
             
             db.commit()
-            return redirect(url_for('kart.index'))
+            return redirect(url_for('Cart.index'))
 
-    return render_template('kart/create.html')
+    return render_template('Cart/create.html')
 
 
 
@@ -53,6 +53,6 @@ def create():
 def delete(id):
     
     db = get_db()
-    db.execute('DELETE FROM kart WHERE id = ?', (id,))
+    db.execute('DELETE FROM Cart WHERE id = ?', (id,))
     db.commit()
-    return redirect(url_for('kart.index'))
+    return redirect(url_for('Cart.index'))

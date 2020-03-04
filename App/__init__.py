@@ -33,8 +33,8 @@ def create_app(test_config=None):
     from . import blog
     app.register_blueprint(blog.bp)
 
-    from . import Kart
-    app.register_blueprint(Kart.bp)
+    from . import Cart
+    app.register_blueprint(Cart.bp)
 
     from . import products
     app.register_blueprint(products.bp)
