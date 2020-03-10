@@ -3,6 +3,8 @@ DROP TABLE IF EXISTS post;
 DROP TABLE IF EXISTS kart;
 DROP TABLE IF EXISTS products;
 
+
+
 CREATE TABLE user(
 		user_id INTEGER PRIMARY KEY AUTOINCREMENT,
 		password TEXT,
@@ -19,8 +21,10 @@ CREATE TABLE post (
   FOREIGN KEY (author_id) REFERENCES user (id)
 );
 
-CREATE TABLE kart
-		(user_id INTEGER,
+CREATE TABLE Cart
+		(
+		id INTEGER PRIMARY KEY AUTOINCREMENT,
+		user_id INTEGER,
 		product_id INTEGER,
 		FOREIGN KEY(user_id) REFERENCES user(user_id),
 		FOREIGN KEY(product_id) REFERENCES product(product_id)
