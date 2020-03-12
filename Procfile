@@ -1,1 +1,1 @@
-web: waitress-serve --call App:create_app
+web: gunicorn gettingstarted.wsgi
