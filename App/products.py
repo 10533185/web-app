@@ -9,7 +9,7 @@ from App.db import get_db
 bp = Blueprint('products', __name__)
 
 @bp.route('/', methods=['GET', 'POST'])
-@login_required
+
 def index():
     if request.method != 'POST':
         db = get_db()
