@@ -8,6 +8,7 @@ from App.db import get_db
 
 bp = Blueprint('Cart', __name__,url_prefix='/Cart')
 
+# Display all items in the cart
 @bp.route('/index')
 @login_required
 def index():
@@ -23,7 +24,7 @@ def index():
     return render_template('Cart/index.html', Cart_items=Cart_items)
 
 
-
+# For adding items into the cart
 @bp.route('/create', methods=('GET', 'POST'))
 @login_required
 def create():
@@ -47,7 +48,7 @@ def create():
     return render_template('Cart/create.html')
 
 
-
+# Remove the items added in the cart
 @bp.route('/<int:id>/delete', methods=('POST',))
 @login_required
 def delete(id):
