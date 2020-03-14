@@ -8,7 +8,7 @@ from App.db import get_db
 
 bp = Blueprint('blog', __name__,url_prefix='/blog')
 
-
+# Display blog contents
 @bp.route('/index')
 @login_required
 def index():
@@ -20,7 +20,7 @@ def index():
     ).fetchall()
     return render_template('blog/index.html', posts=posts)
 
-
+# Creating the post
 @bp.route('/create', methods=('GET', 'POST'))
 @login_required
 def create():
@@ -46,7 +46,7 @@ def create():
 
     return render_template('blog/create.html')
 
-
+# Display all the post
 def get_post(id, check_author=True):
     post = get_db().execute(
         'SELECT p.id, title, body, created, author_id, username'
@@ -63,7 +63,7 @@ def get_post(id, check_author=True):
 
     return post
 
-
+# Editing particular user content in the blog
 @bp.route('/<int:id>/update', methods=('GET', 'POST'))
 @login_required
 def update(id):
@@ -91,7 +91,7 @@ def update(id):
 
     return render_template('blog/update.html', post=post)
 
-
+# To delete the blog content
 @bp.route('/<int:id>/delete', methods=('POST',))
 @login_required
 def delete(id):
