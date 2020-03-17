@@ -15,7 +15,9 @@
     <input name="email" id="email" required>
     <label for="password">Password</label>
     <input type="password" name="password" id="password" required>
-    <input type="submit" onclick="alert('Registered Successfully!!!')" value="Register">
+     {% if g.user['user_id'] == Null %}
+    <input type="submit" value="Register">
+    {% endif %}
   </form>
   <p>If registered already  <a class="action" href="{{ url_for('auth.login') }}"><u><font color="blue">Click Here</u></font></a> to login</p>
 {% endblock %}

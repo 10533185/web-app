@@ -37,12 +37,20 @@ def register():
 
             )
            
+           
             db.commit()
-            return redirect(url_for('auth.login'))
+            return redirect(url_for('auth.confirm'))
 
         flash(error)
 
     return render_template('auth/register.html')
+
+@bp.route('/confirm')
+def confirm():
+
+    return render_template('auth/confirm.html')
+
+
 
 
 @bp.route('/login', methods=('GET', 'POST'))
