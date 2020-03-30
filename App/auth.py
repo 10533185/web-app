@@ -39,7 +39,7 @@ def register():
            
            
             db.commit()
-            flash('Registered successfully')
+            flash('Registered successfully!!!!')
             return redirect(url_for('auth.confirm'))
 
         flash(error)
