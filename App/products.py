@@ -18,7 +18,7 @@ def index():
         ).fetchall()
         return render_template('products/index.html', products=products)
     else:
-        # print(request.form['product_id'])
+        # Adding products to the cart
         try:
             logged_in_user_id = g.user['user_id']
         except:
@@ -31,3 +31,5 @@ def index():
         )
         db.commit()
         return redirect(url_for('products.index'))
+
+

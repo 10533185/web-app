@@ -24,29 +24,6 @@ def index():
     return render_template('Cart/index.html', Cart_items=Cart_items)
 
 
-# For adding items into the cart
-@bp.route('/create', methods=('GET', 'POST'))
-@login_required
-def create():
-    if request.method == 'POST':
-        product_id = request.form['product_id']
-        error = None
-
-        if error is not None:
-            flash(error)
-        else:
-            db = get_db()
-            db.execute(
-                'INSERT INTO Cart (user_id, product_id)'
-                ' VALUES (?, ?)',
-                (g.user['user_id'], product_id)
-            )
-            
-            db.commit()
-            return redirect(url_for('Cart.index'))
-
-    return render_template('Cart/create.html')
-
 
 # Remove the items added in the cart
 @bp.route('/<int:id>/delete', methods=('POST',))

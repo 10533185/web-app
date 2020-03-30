@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block content %}
+
     {% for product in products %}
         
         <form method="post">
@@ -22,6 +23,7 @@
                             <h3>Price:&euro;{{ product['price'] }}</h3>            
                             <h4>Quantity:{{ product['stock'] }}</h4>
                             <input type="submit" name="submit_button" onclick="alert('Added to Cart!!!')" value="add to cart" class="btn-primary" />
+                            
                             
         </div>
         </div>
