@@ -37,6 +37,11 @@ def order():
 
     return render_template('Cart/order.html', Cart_items=Cart_items)
 
+@bp.route('/confirm')
+
+def confirm():
+    return render_template('Cart/confirm.html')
+
 
 
 # Remove the items added in the cart

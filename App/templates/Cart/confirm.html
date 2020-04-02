@@ -1,0 +1,17 @@
+{% extends 'base.html' %} 
+
+
+
+
+{% block header %}
+  <h1>{% block title %}Thank You for Shopping{% endblock %}</h1>
+  {% if g.user['user_id'] %}
+    <a class="action" href="{{ url_for('products.index') }}"> < Back to Shopping</a>
+    
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  
+  <p>Order Placed Successfully !!!!!!!</p>
+{% endblock %}
