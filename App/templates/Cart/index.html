@@ -1,13 +1,12 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h1>{% block title %}My shopping Cart{% endblock %}</h1>
+  <h1>{% block title %}My Cart{% endblock %}</h1>
   {% if g.user['user_id'] %}
-    <a class="action" href="{{ url_for('products.index') }}"> < Back to Shopping </a>
-    
-   
-   
-      {% endif %}
+    <a class="action" href="{{ url_for('products.index') }}"> < Back to Shopping</a>
+    <a class="action" href="{{ url_for('Cart.order') }}">Proceed to Checkout ></a>
+      
+  {% endif %}
 {% endblock %}
 
 {% block content %}
@@ -50,7 +49,8 @@ img {
     </article>
     
   {% endfor %}
-   <div class="text-right"> 
-   <a class="action" href="{{ url_for('Cart.order') }}">Proceed to Checkout > </a>
- </div>
+
+ <div class="text-right"> 
+  
+  </div>
 {% endblock %}

@@ -1,10 +1,51 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h1>{% block title %}Products{% endblock %}</h1>  
+  <h1>{% block title %}Products{% endblock %}</h1> 
+
 {% endblock %}
 
 {% block content %}
+<header>
+    <body>
+        <!--carousel indicators starts here-->
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item " style="background-image: url('https://images.unsplash.com/photo-1471174617910-3e9c04f58ff5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80')">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3 class="display-4">Mercedes Benz</h3>
+                        <p class="lead">Skid Control System</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item active" style="background-image: url('https://images.unsplash.com/photo-1563339018-51d1ef22f402?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80')">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3 class="display-4">Audi</h3>
+                        <p class="lead">Electronic Stability</p>
+                    </div>
+                </div>
+                <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1535745425003-d41f0bcca956?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80')">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3 class="display-4">Volkswagen</h3>
+                        <p class="lead">Remoteless connectivity</p>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </header>
    {% for product in products %}
      <style>
 img {

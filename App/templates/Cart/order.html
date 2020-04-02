@@ -44,9 +44,9 @@ img {
     </article>
     
   {% endfor %}
-  
+  {% if g.user['user_id'] != Cart_items['user_id'] %}
  <div class="text-right"> 
             <button type="button" class="btn-primary" onclick="alert('Order Placed Successfully!!!!')"> Place Order </button>
         </div>
-  
+  {% endif %}
 {% endblock %}
