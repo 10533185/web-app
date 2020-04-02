@@ -53,3 +53,12 @@ def delete(id):
     db.execute('DELETE FROM Cart WHERE id = ?', (id,))
     db.commit()
     return redirect(url_for('Cart.index'))
+
+@bp.route('/<int:id>/deleteall', methods=('POST',))
+@login_required
+def deleteall(id):
+    
+    db = get_db()
+    db.execute('DELETE FROM Cart WHERE user_id = ?', (id,))
+    db.commit()
+    return render_template('Cart/confirm.html')
