@@ -5,9 +5,14 @@
 {% endblock %}
 
 {% block content %}
-
-    {% for product in products %}
-        
+   {% for product in products %}
+     <style>
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>   
         <form method="post">
             <input hidden type='text' name="product_id" value={{ product['id'] }} />
         
@@ -16,8 +21,11 @@
                 <div class="card text-center pb-2 mb-4">
             
                     <div class="row">
-            <img class="img-thumbnail w3-animate-zoom" src=../../{{ product['image'] }} width='20%' />
-                        <div id="product"  class="col-lg-3 col-md-4 col-xs-6 thumb w3-content w3-section">
+                       <img class="img-thumbnail w3-animate-zoom center" src=../../{{ product['image'] }} width="200" height="50" />
+                         <div id="product"  class="col-lg-3 col-md-4 col-xs-6 thumb w3-content w3-section">
+                      
+    
+                       
                             <h1>Brand:{{ product['name'] }}</h1>            
                             <h2>{{ product['description'] }}</h2>
                             <h3>Price:&euro;{{ product['price'] }}</h3>            
