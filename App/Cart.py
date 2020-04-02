@@ -20,6 +20,12 @@ def index():
 
 
     ).fetchall()
+    order = db.execute(
+        'SELECT DISTINCT Cart.user_id,Cart.id,Products.name, Products.price, Products.description, Products.image, Products.id FROM products JOIN Cart ON Products.id = Cart.product_id'
+        
+
+
+    ).fetchall()
 
     return render_template('Cart/index.html', Cart_items=Cart_items)
 
