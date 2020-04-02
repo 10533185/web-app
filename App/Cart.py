@@ -23,6 +23,20 @@ def index():
 
     return render_template('Cart/index.html', Cart_items=Cart_items)
 
+@bp.route('/order')
+@login_required
+def order():
+    db = get_db()
+
+    Cart_items = db.execute(
+        'SELECT Cart.user_id,Cart.id,Products.name, Products.price, Products.description, Products.image, Products.id FROM products JOIN Cart ON Products.id = Cart.product_id'
+        
+
+
+    ).fetchall()
+
+    return render_template('Cart/order.html', Cart_items=Cart_items)
+
 
 
 # Remove the items added in the cart

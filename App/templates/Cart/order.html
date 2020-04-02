@@ -1,31 +1,26 @@
 {% extends 'base.html' %}
-
 {% block header %}
-  <h1>{% block title %}My shopping Cart{% endblock %}</h1>
-  {% if g.user['user_id'] %}
-    <a class="action" href="{{ url_for('products.index') }}"> < Back to Shopping </a>
-    
-    <a class="action" href="{{ url_for('Cart.order') }}">Proceed to Checkout > </a>
-   
-      {% endif %}
+<h1>{% block title %}Order Summary{% endblock %}</h1>
+{% if g.user['user_id'] %}
+    <a class="action" href="{{ url_for('Cart.index') }}"> < Back to Cart</a>
+ {% endif %}
+
 {% endblock %}
 
 {% block content %}
- <style>
+<style>
 img {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 </style> 
-
-  {% for Cart_item in Cart_items %}
+   {% for Cart_item in Cart_items %}
 
     <article class="Cart_items">
       {% if g.user['user_id'] == Cart_item['user_id'] %}
-      <header>
+      <header>         
           
-          <form action="{{ url_for('Cart.delete', id=Cart_item['id']) }}" method="post">
             <div class="container mt-4">                
             <div class="card text-center pb-2 mb-4">
               <div class="row">              
@@ -35,14 +30,13 @@ img {
               <h1>{{ Cart_item['product_id'] }}</h1>
               <h1>Brand:{{ Cart_item['name'] }}</h1>              
               <h2>Price:&euro;{{ Cart_item['price'] }}</h2>
-              <h3>{{ Cart_item['description'] }}</h3>              
-              <input type="submit" name="submit_button" value="Remove" class="btn-danger" /><br>
+              <h3>{{ Cart_item['description'] }}</h3>           
               
-              
-            </form>
-            {% endif %}
+     {% endif %}
+
             </div>
         </div>
+
         </div>
           
       </header>
@@ -50,5 +44,9 @@ img {
     </article>
     
   {% endfor %}
+  
+ <div class="text-right"> 
+            <button type="button" class="btn-primary" onclick="alert('Order Placed Successfully!!!!')"> Place Order </button>
+        </div>
   
 {% endblock %}
