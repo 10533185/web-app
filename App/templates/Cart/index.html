@@ -33,7 +33,8 @@ img {
               <h1>Brand:{{ Cart_item['name'] }}</h1>              
               <h2>Price:&euro;{{ Cart_item['price'] }}</h2>
               <h3>{{ Cart_item['description'] }}</h3>              
-              <input type="submit" name="submit_button" value="Remove" class="btn-danger" /> 
+              <input type="submit" name="submit_button" value="Remove" class="btn-danger" /><br>
+              <button type="button" class="btn-primary" onclick="alert('Order Placed Successfully!!!!')"> Place Order </button>
               
             </form>
             {% endif %}
