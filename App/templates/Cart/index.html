@@ -5,7 +5,7 @@
   {% if g.user['user_id'] %}
     <a class="action" href="{{ url_for('products.index') }}"> < Back to Shopping </a>
     
-    <a class="action" href="{{ url_for('Cart.order') }}">Proceed to Checkout > </a>
+   
    
       {% endif %}
 {% endblock %}
@@ -50,5 +50,7 @@ img {
     </article>
     
   {% endfor %}
-  
+   <div class="text-right"> 
+   <a class="action" href="{{ url_for('Cart.order') }}">Proceed to Checkout > </a>
+ </div>
 {% endblock %}
