@@ -29,6 +29,7 @@ def index():
 
     return render_template('Cart/index.html', Cart_items=Cart_items)
 
+# Display order Summary page
 @bp.route('/order')
 @login_required
 def order():
@@ -60,6 +61,7 @@ def delete(id):
     db.commit()
     return redirect(url_for('Cart.index'))
 
+#Remove all items from the Cart once the order is placed
 @bp.route('/<int:id>/deleteall', methods=('POST',))
 @login_required
 def deleteall(id):

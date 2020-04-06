@@ -48,13 +48,22 @@ img {
     </article>
     
   {% endfor %}
-{% for Cart_item in Cart_items %}
-  {% if Cart_item['user_id'] == g.user['user_id'] %}
-  <div class="text-right">
+  
+ 
+
+{% for Cart in Cart_items %}
+
+  {% if Cart['user_id'] == g.user['user_id'] %}
+   
+  <div class="text-right">  
   <a class="action" href="{{ url_for('Cart.order') }}">Proceed to Checkout ></a>
-  </div>
+  </div> 
+
   {% endif %}
+  
+
   {% endfor %}
+  
   
   
   
