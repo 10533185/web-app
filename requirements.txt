@@ -36,7 +36,7 @@ social-auth-app-django==2.1.0
 social-auth-core==1.6.0
 SQLAlchemy==1.2.2
 uritemplate==3.0.0
-urllib3==1.22
+urllib3==1.26.5
 virtualenv==15.1.0
 waitress==1.4.3
 Werkzeug==1.0.0
