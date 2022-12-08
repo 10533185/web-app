@@ -1,5 +1,5 @@
 -e git+https://github.com/10533185/web-app.git@dae9c92b851ee75ed8e07f0b7114257fdea7b802#egg=App
-certifi==2018.1.18
+certifi==2022.12.7
 chardet==3.0.4
 click==6.7
 defusedxml==0.5.0
